@@ -20,7 +20,7 @@ Trabalho prático desenvolvido em PHP com framework Laravel, seguindo o padrão 
 
 
 ## Estrutura do Projeto
-
+```
 app/
 ├── Http/Controllers/
 │   ├── Auth/
@@ -58,10 +58,10 @@ resources/views/
 │   ├── quartos/{index,create,edit,show}.blade.php
 │   └── reservas/{index,create,edit,show}.blade.php
 routes/web.php
-
+```
 
 ## Diagrama do Banco de Dados
-
+```
 users
   id | name | email | password
 
@@ -80,7 +80,7 @@ quartos
 reservas
   id | hospede_id (FK) | quarto_id (FK) | funcionario_id (FK)
      | data_checkin | data_checkout | valor_total | status | observacoes
-
+```
 
 ## Funcionalidades implementadas
 
