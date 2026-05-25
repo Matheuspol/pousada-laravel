@@ -96,6 +96,6 @@ reservas
 - **Cálculo automático** — Valor total da reserva calculado por diária × número de dias
 - **Bootstrap 5 + Bootstrap Icons** — Interface responsiva e moderna
 
-- **Caso o cadastro para login falhe, pode ser usado para acessar o sistema:
-e-mail: admin@admin.com 
-senha: 123456
+- **Caso o cadastro para login falhe** - Pode ser usado para acessar o sistema:
+- **E-mail:** admin@admin.com 
+- **Senha:** 123456
