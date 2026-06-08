@@ -18,11 +18,10 @@ class Hospede extends Model
         'telefone',
         'cidade',
         'estado',
+        'anexo',
     ];
 
-    /**
-     * Um hóspede pode ter muitas reservas.
-     */
+    // Um hóspede pode ter muitas reservas.
     public function reservas()
     {
         return $this->hasMany(Reserva::class, 'hospede_id');

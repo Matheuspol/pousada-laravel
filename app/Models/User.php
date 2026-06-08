@@ -10,26 +10,20 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * Campos permitidos para atribuição em massa
-     */
+    // Campos permitidos para atribuição em massa
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
 
-    /**
-     * Campos ocultos
-     */
+    // Campos ocultos
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Conversões automáticas
-     */
+    // Conversões automáticas
     protected function casts(): array
     {
         return [

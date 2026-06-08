@@ -19,25 +19,19 @@ class Quarto extends Model
         'descricao',
     ];
 
-    /**
-     * Um quarto pertence a uma categoria.
-     */
+    // Um quarto pertence a uma categoria.
     public function categoria()
     {
         return $this->belongsTo(CategoriaQuarto::class, 'categoria_id');
     }
 
-    /**
-     * Um quarto pode ter muitas reservas.
-     */
+    // Um quarto pode ter muitas reservas.
     public function reservas()
     {
         return $this->hasMany(Reserva::class, 'quarto_id');
     }
 
-    /**
-     * Rótulos legíveis para os status.
-     */
+    // Rótulos legíveis para os status.
     public static function statusLabel(string $status): string
     {
         return match ($status) {

@@ -19,9 +19,7 @@ class Funcionario extends Model
         'telefone',
     ];
 
-    /**
-     * Um funcionário pode ter registrado muitas reservas.
-     */
+    // Um funcionário pode ter registrado muitas reservas.
     public function reservas()
     {
         return $this->hasMany(Reserva::class, 'funcionario_id');

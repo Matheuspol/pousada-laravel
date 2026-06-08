@@ -17,9 +17,7 @@ class CategoriaQuarto extends Model
         'capacidade',
     ];
 
-    /**
-     * Uma categoria possui muitos quartos.
-     */
+    // Uma categoria possui muitos quartos.
     public function quartos()
     {
         return $this->hasMany(Quarto::class, 'categoria_id');
