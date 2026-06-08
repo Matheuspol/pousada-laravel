@@ -8,17 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /**
-     * Exibe o formulário de login.
-     */
+    // Exibe o formulário de login.
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
-    /**
-     * Processa o login do usuário.
-     */
+    // Processa o login do usuário.
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -37,9 +33,7 @@ class LoginController extends Controller
             ->withErrors(['email' => 'E-mail ou senha incorretos.']);
     }
 
-    /**
-     * Encerra a sessão do usuário.
-     */
+    // Encerra a sessão do usuário.
     public function logout(Request $request)
     {
         Auth::logout();

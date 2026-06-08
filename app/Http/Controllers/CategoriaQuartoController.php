@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoriaQuartoController extends Controller
 {
-    /**
-     * Lista todas as categorias com paginação e pesquisa.
-     */
+    // Lista todas as categorias com paginação e pesquisa.
     public function index(Request $request)
     {
         $busca = $request->input('busca');
@@ -25,17 +23,13 @@ class CategoriaQuartoController extends Controller
         return view('categorias-quarto.index', compact('categorias', 'busca'));
     }
 
-    /**
-     * Formulário de criação.
-     */
+    // Formulário de criação.
     public function create()
     {
         return view('categorias-quarto.create');
     }
 
-    /**
-     * Persiste nova categoria.
-     */
+    // Persiste nova categoria.
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -54,9 +48,7 @@ class CategoriaQuartoController extends Controller
             ->with('success', 'Categoria criada com sucesso!');
     }
 
-    /**
-     * Detalhes de uma categoria.
-     */
+    // Detalhes de uma categoria.
     public function show(string $id)
     {
         // Criptografia de rota: decodifica o ID
@@ -65,9 +57,7 @@ class CategoriaQuartoController extends Controller
         return view('categorias-quarto.show', compact('categoria'));
     }
 
-    /**
-     * Formulário de edição.
-     */
+    // Formulário de edição.
     public function edit(string $id)
     {
         $realId = decrypt($id);
@@ -75,9 +65,7 @@ class CategoriaQuartoController extends Controller
         return view('categorias-quarto.edit', compact('categoria'));
     }
 
-    /**
-     * Atualiza a categoria.
-     */
+    // Atualiza a categoria.
     public function update(Request $request, string $id)
     {
         $realId = decrypt($id);
@@ -95,9 +83,7 @@ class CategoriaQuartoController extends Controller
             ->with('success', 'Categoria atualizada com sucesso!');
     }
 
-    /**
-     * Remove a categoria.
-     */
+    // Remove a categoria.
     public function destroy(string $id)
     {
         $realId = decrypt($id);

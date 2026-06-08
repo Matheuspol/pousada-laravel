@@ -10,9 +10,7 @@ use App\Models\Reserva;
 
 class DashboardController extends Controller
 {
-    /**
-     * Exibe o dashboard com resumo das entidades.
-     */
+    // Exibe o dashboard com resumo das entidades.
     public function index()
     {
         $totais = [

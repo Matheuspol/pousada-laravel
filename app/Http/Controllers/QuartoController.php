@@ -16,7 +16,7 @@ class QuartoController extends Controller
         $quartos = Quarto::with('categoria')
             ->when($busca, function ($query, $busca) {
                 $query->where('numero', 'like', "%{$busca}%")
-                      ->orWhere('descricao', 'like', "%{$busca}%");
+                    ->orWhere('descricao', 'like', "%{$busca}%");
             })
             ->when($status, fn($q) => $q->where('status', $status))
             ->orderBy('numero')

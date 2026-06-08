@@ -10,17 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    /**
-     * Exibe o formulário de registro.
-     */
+    // Exibe o formulário de registro.
     public function showRegistrationForm()
     {
         return view('auth.register');
     }
 
-    /**
-     * Processa o registro do novo usuário.
-     */
+    // Processa o registro do novo usuário.
     public function register(Request $request)
     {
         $data = $request->validate([
