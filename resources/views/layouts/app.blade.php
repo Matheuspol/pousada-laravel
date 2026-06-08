@@ -21,7 +21,9 @@
             min-height: 100vh;
         }
 
-        /* ── Sidebar ───────────────────────────────── */
+        /*  
+        Sidebar 
+        */
         #sidebar {
             width: var(--sidebar-width);
             min-height: 100vh;
@@ -81,7 +83,9 @@
             padding: 1rem 1.5rem .3rem;
         }
 
-        /* ── Main ─────────────────────────────────── */
+        /*  
+        Main
+        */
         #main-content {
             margin-left: var(--sidebar-width);
             min-height: 100vh;
@@ -113,7 +117,9 @@
             flex: 1;
         }
 
-        /* ── Cards / Tables ───────────────────────── */
+        /*  
+        Cards / Tables  
+        */
         .card {
             border: none;
             box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
@@ -168,7 +174,9 @@
             color: #374151;
         }
 
-        /* ── Stat cards ───────────────────────────── */
+        /*  
+        Stat cards  
+        */
         .stat-card {
             border-radius: 12px;
             padding: 1.25rem 1.5rem;
