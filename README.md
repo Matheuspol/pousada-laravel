@@ -20,7 +20,7 @@ Trabalho prático desenvolvido em PHP com framework Laravel, seguindo o padrão 
 
 
 ## Estrutura do Projeto
-```
+
 app/
 ├── Http/Controllers/
 │   ├── Auth/
@@ -43,7 +43,8 @@ database/migrations/
 │   ├── ..._create_hospedes_table.php
 │   ├── ..._create_funcionarios_table.php
 │   ├── ..._create_quartos_table.php
-│   └── ..._create_reservas_table.php
+│   ├── ..._create_reservas_table.php
+│   └── ..._add_anexo_hospedes_table.php
 resources/views/
 │   ├── layouts/
 │   │   ├── app.blade.php       
@@ -58,10 +59,10 @@ resources/views/
 │   ├── quartos/{index,create,edit,show}.blade.php
 │   └── reservas/{index,create,edit,show}.blade.php
 routes/web.php
-```
+
 
 ## Diagrama do Banco de Dados
-```
+
 users
   id | name | email | password
 
@@ -69,7 +70,7 @@ categorias_quarto
   id | nome | descricao | capacidade
 
 hospedes
-  id | nome | cpf | email | telefone | cidade | estado
+  id | nome | cpf | email | telefone | cidade | estado | anexo
 
 funcionarios
   id | nome | cpf | cargo | email | telefone
@@ -80,7 +81,7 @@ quartos
 reservas
   id | hospede_id (FK) | quarto_id (FK) | funcionario_id (FK)
      | data_checkin | data_checkout | valor_total | status | observacoes
-```
+
 
 ## Funcionalidades implementadas
 
@@ -95,7 +96,5 @@ reservas
 - **Proteção de exclusão** — Impede excluir registros com dependências (FK)
 - **Cálculo automático** — Valor total da reserva calculado por diária × número de dias
 - **Bootstrap 5 + Bootstrap Icons** — Interface responsiva e moderna
-
-- **Caso o cadastro para login falhe** - Pode ser usado para acessar o sistema:
-- **E-mail:** admin@admin.com 
-- **Senha:** 123456
+- **Adicionado campo para anexo** — Campo para anexo de documentos em PDF adicionado na tela de registro de hóspedes
+- **Adicionado comentários em 2 CRUDS** — FuncionarioController e ReservaController
