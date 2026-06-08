@@ -18,7 +18,7 @@
                 </div>
                 @endif
 
-                <form method="POST" action="{{ route('hospedes.store') }}">
+                <form method="POST" action="{{ route('hospedes.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row g-3">
                         <div class="col-12">
@@ -27,36 +27,55 @@
                                 value="{{ old('nome') }}" required>
                             @error('nome')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
+
                         <div class="col-md-6">
                             <label class="form-label fw-semibold small">CPF <span class="text-danger">*</span></label>
                             <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror"
                                 value="{{ old('cpf') }}" placeholder="000.000.000-00" maxlength="14" required>
                             @error('cpf')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
+
                         <div class="col-md-6">
                             <label class="form-label fw-semibold small">Telefone</label>
                             <input type="text" name="telefone" class="form-control" value="{{ old('telefone') }}" placeholder="(00) 00000-0000">
                         </div>
+
                         <div class="col-12">
                             <label class="form-label fw-semibold small">E-mail</label>
                             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                                 value="{{ old('email') }}" placeholder="hospede@email.com">
                             @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
+
                         <div class="col-md-8">
                             <label class="form-label fw-semibold small">Cidade</label>
                             <input type="text" name="cidade" class="form-control" value="{{ old('cidade') }}">
                         </div>
+
                         <div class="col-md-4">
                             <label class="form-label fw-semibold small">Estado (UF)</label>
                             <input type="text" name="estado" class="form-control" value="{{ old('estado') }}" maxlength="2" placeholder="RS">
                         </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label fw-semibold small">Documento (PDF)</label>
+                        <input type="file"
+                            name="anexo"
+                            class="form-control @error('anexo') is-invalid @enderror"
+                            accept=".pdf">
+
+                        @error('anexo')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="d-flex gap-2 mt-4">
                         <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg me-1"></i>Salvar</button>
                         <a href="{{ route('hospedes.index') }}" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Voltar</a>
                     </div>
+
                 </form>
             </div>
         </div>

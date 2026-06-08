@@ -18,7 +18,9 @@
                 </div>
                 @endif
 
-                <form method="POST" action="{{ route('hospedes.update', encrypt($hospede->id)) }}">
+                <form method="POST"
+                    action="{{ route('hospedes.update', encrypt($hospede->id)) }}"
+                    enctype="multipart/form-data">
                     @csrf @method('PUT')
                     <div class="row g-3">
                         <div class="col-12">
@@ -27,35 +29,66 @@
                                 value="{{ old('nome', $hospede->nome) }}" required>
                             @error('nome')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
+
                         <div class="col-md-6">
                             <label class="form-label fw-semibold small">CPF <span class="text-danger">*</span></label>
                             <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror"
                                 value="{{ old('cpf', $hospede->cpf) }}" maxlength="14" required>
                             @error('cpf')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
+
                         <div class="col-md-6">
                             <label class="form-label fw-semibold small">Telefone</label>
                             <input type="text" name="telefone" class="form-control" value="{{ old('telefone', $hospede->telefone) }}">
                         </div>
+
                         <div class="col-12">
                             <label class="form-label fw-semibold small">E-mail</label>
                             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                                 value="{{ old('email', $hospede->email) }}">
                             @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
                         </div>
+
                         <div class="col-md-8">
                             <label class="form-label fw-semibold small">Cidade</label>
                             <input type="text" name="cidade" class="form-control" value="{{ old('cidade', $hospede->cidade) }}">
                         </div>
+
                         <div class="col-md-4">
                             <label class="form-label fw-semibold small">Estado (UF)</label>
                             <input type="text" name="estado" class="form-control" value="{{ old('estado', $hospede->estado) }}" maxlength="2">
                         </div>
                     </div>
+
+                    <div class="col-12">
+                        <label class="form-label fw-semibold small">Documento (PDF)</label>
+
+                        <input type="file"
+                            name="anexo"
+                            class="form-control @error('anexo') is-invalid @enderror"
+                            accept=".pdf">
+
+                        @error('anexo')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+
+                        @if($hospede->anexo)
+                        <div class="mt-2">
+                            <a href="{{ asset('storage/' . $hospede->anexo) }}"
+                                target="_blank"
+                                class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-file-earmark-pdf"></i>
+                                Visualizar documento atual
+                            </a>
+                        </div>
+                        @endif
+                    </div>
+
                     <div class="d-flex gap-2 mt-4">
                         <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg me-1"></i>Atualizar</button>
                         <a href="{{ route('hospedes.index') }}" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Voltar</a>
                     </div>
+                    
                 </form>
             </div>
         </div>
