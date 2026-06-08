@@ -13,14 +13,14 @@ Trabalho prático desenvolvido em PHP com framework Laravel, seguindo o padrão 
 | ≥ 3 CRUDs básicos (sem FK) | ✅ | Categorias de Quarto, Hóspedes, Funcionários |
 | ≥ 1 CRUD com FK | ✅ | Quartos (FK → categorias_quarto) e Reservas (FK → hospedes, quartos, funcionarios) |
 | Padrão MVC | ✅ | Models, Controllers, Views separados |
-| Migrations | ✅ | 5 migrations (categorias_quarto, hospedes, funcionarios, quartos, reservas) |
+| Migrations | ✅ | 6 migrations (categorias_quarto, hospedes, funcionarios, quartos, reservas e anexo_hospede) |
 | Paginação | ✅ | ->paginate(10) em todos os índices |
 | Tela de pesquisa | ✅ | Busca por texto em todos os módulos |
 | Criptografia de rotas | ✅ | encrypt() / decrypt() nos IDs das rotas |
 
 
 ## Estrutura do Projeto
-
+```
 app/
 ├── Http/Controllers/
 │   ├── Auth/
@@ -59,10 +59,10 @@ resources/views/
 │   ├── quartos/{index,create,edit,show}.blade.php
 │   └── reservas/{index,create,edit,show}.blade.php
 routes/web.php
-
+```
 
 ## Diagrama do Banco de Dados
-
+```
 users
   id | name | email | password
 
@@ -81,7 +81,7 @@ quartos
 reservas
   id | hospede_id (FK) | quarto_id (FK) | funcionario_id (FK)
      | data_checkin | data_checkout | valor_total | status | observacoes
-
+```
 
 ## Funcionalidades implementadas
 
@@ -96,5 +96,5 @@ reservas
 - **Proteção de exclusão** — Impede excluir registros com dependências (FK)
 - **Cálculo automático** — Valor total da reserva calculado por diária × número de dias
 - **Bootstrap 5 + Bootstrap Icons** — Interface responsiva e moderna
-- **Adicionado campo para anexo** — Campo para anexo de documentos em PDF adicionado na tela de registro de hóspedes
-- **Adicionado comentários em 2 CRUDS** — FuncionarioController e ReservaController
+- **Upload de documentos PDF** — Campo para anexo de documentos em PDF na tela de registro de hóspedes com suporte para criação, edição e visualização do arquivo
+- **Documentação CRUDS** — Adicionado comentários nos controllers: FuncionarioController e ReservaController
